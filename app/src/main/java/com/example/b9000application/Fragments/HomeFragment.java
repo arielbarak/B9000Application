@@ -81,7 +81,7 @@ public class HomeFragment extends Fragment {
         mPostListViewModel.getAllPosts().observe(this, new Observer<LinkedList<Post>>() {
                     @Override
                     public void onChanged(@Nullable final LinkedList<Post> posts){
-                        Log.d("Post list", "onChanged: Chnage ");
+                        Log.d("Post list", "onChanged: Chanage ");
                         adapter.setPosts(posts);
                         postRecyclerView.setVisibility(View.VISIBLE);
                         progressBar.setVisibility(View.INVISIBLE);

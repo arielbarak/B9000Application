@@ -176,7 +176,6 @@ public class PostDetailsFragment extends Fragment implements CommentItemTouchHel
                     assert getView() != null;
                     if(p.isDeleted())
                     {
-                        
                         Navigation.findNavController(getView()).navigateUp();
                         showMessage("Post deleted!");
                     }
