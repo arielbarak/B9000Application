@@ -24,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -76,7 +77,8 @@ public class EditPostFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_edit_post, container, false);
         postUpdateViewModel = ViewModelProviders.of(this).get(PostUpdateViewModel.class);
         muserViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-
+       // tv_Category=(Spinner)v.findViewById(R.id.post_edit_category);
+        //String CategoryText = tv_Category.getSelectedItem().toString();
         tv_Category = v.findViewById(R.id.post_edit_category);
         tv_Content = v.findViewById(R.id.post_edit_content);
         btn_Edit = v.findViewById(R.id.user_disable_acount_button);
@@ -88,7 +90,7 @@ public class EditPostFragment extends Fragment {
         assert getArguments() != null;
         final Post p = EditPostFragmentArgs.fromBundle(getArguments()).getPost();
         tv_Content.setText(p.getContent());
-        tv_Category.setText(p.getCategory());
+        //tv_Category.setText(p.getCategory());
         Glide.with(this).load(p.getPicture().toString()).listener(new RequestListener<Drawable>() {
             @Override
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
@@ -117,12 +119,11 @@ public class EditPostFragment extends Fragment {
                     postUpdateViewModel.isPostExist(p.getPostKey(), new PostRepository.ExistPostListener() {
                         @Override
                         public void onExist() {
-                            if (!tv_Title.getText().toString().isEmpty() && !tv_SecondTitle.getText().toString().isEmpty()
-                                    && !tv_Content.getText().toString().isEmpty() &&  !tv_Category.getText().toString().isEmpty() && pickerImgUri !=null)
+                            if (!tv_Content.getText().toString().isEmpty() && pickerImgUri !=null)
                             {
                                 if(pickerImgUri.toString().equals(p.getPicture()))
                                 {
-                                    p.updatePost(tv_Title.getText().toString(),tv_SecondTitle.getText().toString(),tv_Category.getText().toString(), tv_Content.getText().toString(),p.getPicture(),muserViewModel.getUid(),0,muserViewModel.getUserImageUrl().toString(),muserViewModel.getDisplayName());
+                                    p.updatePost(tv_Content.getText().toString(),p.getPicture(),muserViewModel.getUid(),0,muserViewModel.getUserImageUrl().toString(),muserViewModel.getDisplayName());
                                     addPost(p);
                                     enable_input(true);
                                 }
@@ -132,7 +133,7 @@ public class EditPostFragment extends Fragment {
                                     postUpdateViewModel.saveBlogImage(pickerImgUri, new PostRepository.SaveImageListener() {
                                         @Override
                                         public void onComplete(String imageDownloadLink) {
-                                            p.updatePost(tv_Title.getText().toString(),tv_SecondTitle.getText().toString(),tv_Category.getText().toString(), tv_Content.getText().toString(),imageDownloadLink,muserViewModel.getUid(),0,muserViewModel.getUserImageUrl().toString(),muserViewModel.getDisplayName());
+                                            p.updatePost(tv_Content.getText().toString(),imageDownloadLink,muserViewModel.getUid(),0,muserViewModel.getUserImageUrl().toString(),muserViewModel.getDisplayName());
                                             addPost(p);
                                             enable_input(true);
                                         }
@@ -234,9 +235,6 @@ public class EditPostFragment extends Fragment {
 
         tv_Content.setEnabled(b);
         im_PostImage.setEnabled(b);
-        tv_Category.setEnabled(b);
-        tv_Title.setEnabled(b);
-        tv_SecondTitle.setEnabled(b);
 
     }
 

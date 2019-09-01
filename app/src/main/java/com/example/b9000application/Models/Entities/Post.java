@@ -92,9 +92,8 @@ public class Post implements Serializable {
         this.likes = likes;
 
     }
-    public void updatePost(@NonNull String title, @NonNull String second_title, @NonNull String category, @NonNull String content, @NonNull String picture, @NonNull String userId, @NonNull int likes, @NonNull String userImage, @NonNull String userName ) {
+    public void updatePost(@NonNull String content, @NonNull String picture, @NonNull String userId, @NonNull int likes, @NonNull String userImage, @NonNull String userName ) {
         this.likes = likes;
-        this.category = category;
         this.content = content;
         this.picture = picture;
         this.userId = userId;
@@ -113,6 +112,7 @@ public class Post implements Serializable {
 
 
     public Date getTimestamp() {
+        this.setTimestamp(new Date(System.currentTimeMillis()));
         return timestamp;
     }
     public void setTimestamp(Date timestamp) {
