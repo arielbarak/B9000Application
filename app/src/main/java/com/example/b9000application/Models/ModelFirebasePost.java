@@ -11,6 +11,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.database.core.Tag;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -288,7 +289,8 @@ public class ModelFirebasePost extends ModelFirebase {
     }
 
     public void removePostsPerUserListener() {
-        if(this.getPostsPerUserListener!=null)
+        if (this.getPostsPerUserListener != null)
             this.getPostsPerUserListener.remove();
     }
+
 }
