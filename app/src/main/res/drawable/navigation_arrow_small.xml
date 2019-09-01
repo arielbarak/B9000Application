@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scale android:drawable="@drawable/navigation_arrow" android:scaleGravity="center" android:scaleWidth="100" android:scaleHeight="100"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

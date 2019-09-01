@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.EditPostFragment"
+    android:background="@color/colorAccent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_post_edit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/user_disable_acount_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/reg_btn_style"
+            android:text="Update"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+        <EditText
+            android:id="@+id/post_edit_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="164dp"
+            android:background="@drawable/popup_edittext_style"
+            android:ems="4"
+            android:hint="Content"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:singleLine="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="193dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_edit_content">
+
+            <ImageView
+                android:id="@+id/image_post_post_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#414141"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/photo_icon" />
+
+            <View
+                android:id="@+id/gradient_shape_view_post_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/trending_gradient_shape"
+                android:visibility="visible" />
+        </FrameLayout>
+
+        <ProgressBar
+            android:id="@+id/post_edit_progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_style"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/user_disable_acount_button"
+            app:layout_constraintEnd_toEndOf="@+id/user_disable_acount_button"
+            app:layout_constraintStart_toStartOf="@+id/user_disable_acount_button"
+            app:layout_constraintTop_toTopOf="@+id/user_disable_acount_button" />
+
+        <Spinner
+            android:id="@+id/post_edit_category"
+            android:layout_width="412dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginRight="70dp"
+            android:ems="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+        </Spinner>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:keyboardNavigationCluster="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/add_post_send"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/reg_btn_style"
+            android:text="Send"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+
+        <EditText
+            android:id="@+id/add_post_content"
+            android:layout_width="413dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="106dp"
+            android:background="@drawable/popup_edittext_style"
+            android:ems="10"
+            android:hint="Content"
+            android:inputType="textMultiLine"
+            android:lines="6"
+            android:singleLine="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="193dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_post_content">
+
+            <ImageView
+                android:id="@+id/add_post_image_post"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#414141"
+                android:padding="30dp"
+                android:scaleType="centerInside"
+                android:tint="@color/common_google_signin_btn_text_dark_pressed"
+                app:srcCompat="@drawable/photo_icon" />
+
+            <View
+                android:id="@+id/gradient_shape_view_popup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/trending_gradient_shape"
+                android:visibility="visible" />
+        </FrameLayout>
+
+        <ProgressBar
+            android:id="@+id/add_post_progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_style"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/add_post_send"
+            app:layout_constraintEnd_toEndOf="@+id/add_post_send"
+            app:layout_constraintStart_toStartOf="@+id/add_post_send"
+            app:layout_constraintTop_toTopOf="@+id/add_post_send" />
+
+        <Spinner
+            android:id="@+id/add_post_category"
+            android:layout_width="336dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginRight="70dp"
+            android:background="@color/colorWhite"
+            android:ems="10"
+            android:entries="@array/Categories"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/add_post_user_image"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/add_post_user_image"
+            style="@style/profile_style"
+            android:layout_width="70dp"
+            android:layout_height="86dp"
+            android:background="@color/colorAccent"
+            android:padding="4dp"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars[0]" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

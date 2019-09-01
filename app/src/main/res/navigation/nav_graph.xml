@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.b9000application.Fragments.HomeFragment"
+        android:label="B9000"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_postDetailsFragment"
+            app:destination="@+id/postDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_loginActivity"
+            app:destination="@+id/loginActivity"
+            app:popUpTo="@+id/loginActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.b9000application.Fragments.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <argument
+            android:name="userId"
+            app:argType="string"
+            android:defaultValue="profile" />
+        <argument
+            android:name="userName"
+            app:argType="string"
+            android:defaultValue="Profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/postDetailsFragment"
+        android:name="com.example.b9000application.Fragments.PostDetailsFragment"
+        android:label="Post"
+        tools:layout="@layout/fragment_post_details">
+        <argument
+            android:name="postKey"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_postDetailsFragment_to_postEditFragment3"
+            app:destination="@id/postEditFragment" />
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_postDetailsFragment_to_userFragment"
+            app:destination="@id/userFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.b9000application.Activities.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.example.b9000application.Activities.RegisterActivity"
+        android:label="activity_registar"
+        tools:layout="@layout/activity_registar" />
+    <fragment
+        android:id="@+id/postEditFragment"
+        android:name="com.example.b9000application.Fragments.EditPostFragment"
+        android:label="Edit"
+        tools:layout="@layout/fragment_edit_post" >
+        <argument
+            android:name="post"
+            app:argType="com.example.b9000application.Models.Entities.Post" />
+    </fragment>
+    <fragment
+        android:id="@+id/writersFragment"
+        android:name="com.example.b9000application.Fragments.UserListFragment"
+        android:label="Writers"
+        tools:layout="@layout/fragment_user_list" >
+        <action
+            android:id="@+id/action_writersFragment_to_userFragment"
+            app:destination="@id/userFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.b9000application.Fragments.ProfileFragment"
+        android:label="User"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_postDetailsFragment"
+        app:destination="@id/postDetailsFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    <action
+        android:id="@+id/action_global_writersFragment"
+        app:destination="@id/writersFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/nav_graph" />
+    <fragment
+        android:id="@+id/editUserFragment"
+        android:name="com.example.b9000application.Fragments.EditUserFragment"
+        android:label="Edit User"
+        tools:layout="@layout/fragment_edit_user">
+        <argument
+            android:name="user"
+            app:argType="com.example.b9000application.Models.Entities.User" />
+    </fragment>
+    <action android:id="@+id/action_global_editUserFragment" app:destination="@id/editUserFragment" />
+</navigation>

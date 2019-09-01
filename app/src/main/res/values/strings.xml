@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">B9000</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+    <string name="posts_menu">Posts</string>
+    <string name="writers_menu">Writers</string>
+    <string name="profile_menu">Profile</string>
+    <string name="email">arieli.barak@gmail.com</string>
+    <string-array name="Categories">
+        <item>Dank Meme</item>
+        <item>Education</item>
+        <item><![CDATA[Movies & TV]]></item>
+    </string-array>
+</resources>
