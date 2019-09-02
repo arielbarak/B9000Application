@@ -52,12 +52,13 @@
             android:maxWidth="189dp"
             android:maxLines="1"
             android:textAllCaps="true"
-            android:textColor="#fff"
+            android:textColor="@color/colorWhite"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="wrap"
+            android:text="TextView"
             tools:text="LMAFO" />
 
         <TextView
