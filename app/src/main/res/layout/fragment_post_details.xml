@@ -17,7 +17,7 @@
             android:id="@+id/post_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="31dp"
+            tools:layout_editor_absoluteX="-127dp"
             tools:layout_editor_absoluteY="0dp">
 
             <Button
@@ -57,13 +57,15 @@
 
             <ImageView
                 android:id="@+id/postImage"
-                android:layout_width="0dp"
-                android:layout_height="208dp"
+                android:layout_width="278dp"
+                android:layout_height="260dp"
+                android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/divider2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
                 tools:src="@drawable/scabmeme" />
 
             <ImageView
@@ -94,14 +96,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginTop="223dp"
-                android:textColor="@color/colorWhite"
-
                 android:gravity="center|left"
+
                 android:maxWidth="340dp"
                 android:maxLines="1"
                 android:paddingRight="10dp"
                 android:singleLine="true"
                 android:text="TextView"
+                android:textColor="@color/colorWhite"
                 android:textSize="16dp"
                 android:textStyle="italic"
                 app:autoSizeTextType="none"
@@ -120,8 +122,8 @@
                 android:layout_marginRight="16dp"
                 android:gravity="top|left"
                 android:text="TextView"
-                android:textSize="16sp"
                 android:textColor="@color/colorWhite"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider2"
