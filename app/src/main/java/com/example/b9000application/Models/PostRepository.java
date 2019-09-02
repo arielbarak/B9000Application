@@ -15,7 +15,8 @@ public class PostRepository {
     final public static PostRepository instance = new PostRepository();
     private PostDao mPostDao;
     ModelFirebasePost modelFirebase = ModelFirebasePost.instance;
-    private PostListLiveData postListLiveData = new PostListLiveData();    public interface ExistPostListener {
+    private PostListLiveData postListLiveData = new PostListLiveData();
+    public interface ExistPostListener {
         void onExist();
         void onNotExist();
         void onOffline();

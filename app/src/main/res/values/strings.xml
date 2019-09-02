@@ -10,6 +10,7 @@
     <string name="writers_menu">Writers</string>
     <string name="profile_menu">Profile</string>
     <string name="email">arieli.barak@gmail.com</string>
+    <string name="content">Content</string>
     <string-array name="Categories">
         <item>Dank Meme</item>
         <item>Education</item>

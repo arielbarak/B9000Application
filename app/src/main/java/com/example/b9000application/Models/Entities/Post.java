@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -43,6 +44,8 @@ public class Post implements Serializable {
     private String userId;
     @NonNull
     private String userName;
+    @NonNull
+    private int deleted; //0 is false = post not deleted, 1 is true = post deleted
 
     @NonNull
     public String getUserName() {
@@ -63,18 +66,26 @@ public class Post implements Serializable {
     }
 
     @NonNull
+    public int getDeleted() { return deleted; }
+
+    public void setDeleted(int deleted) { this.deleted = deleted; }
+
+    @NonNull
     private String userImage;
 
-    public boolean isDeleted() {
-        return deleted;
-    }
+//    @NonNull
+//    public boolean getDeleted() {
+//        if (deleted == 0)
+//            return false;
+//        return true;
+//    }
 
-    public void setDeleted( boolean deleted) {
-        this.deleted = deleted;
-    }
+//    public void setDeleted( boolean deleted) {
+//        if (deleted == false)
+//            this.deleted = 0;
+//        else this.deleted = 1;
+//    }
 
-    @Ignore
-    private boolean deleted = false;
     @NonNull
     private int likes;
     /*

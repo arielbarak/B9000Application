@@ -174,7 +174,7 @@ public class PostDetailsFragment extends Fragment implements CommentItemTouchHel
                 public void onChanged(Post post) {
                     p = post;
                     assert getView() != null;
-                    if(p.isDeleted())
+                    if(p.getDeleted() == 1)
                     {
                         Navigation.findNavController(getView()).navigateUp();
                         showMessage("Post deleted!");
@@ -365,7 +365,7 @@ public class PostDetailsFragment extends Fragment implements CommentItemTouchHel
                     public void onClick(DialogInterface dialog1, int whichButton) {
                         progressBar.setVisibility(View.VISIBLE);
                         layout.setVisibility(View.INVISIBLE);
-                        p.setDeleted(true);
+                        p.setDeleted(1);
                         mPostUpdateViewModel.updatePost(p, new PostRepository.InsertPostListener() {
                             @Override
                             public void onComplete(boolean success) {

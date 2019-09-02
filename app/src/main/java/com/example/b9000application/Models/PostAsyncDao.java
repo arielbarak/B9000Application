@@ -21,7 +21,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Dao
-interface PostDao{
+interface
+PostDao{
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Post post);
 
@@ -31,7 +32,7 @@ interface PostDao{
     @Query("DELETE FROM POST_TABLE WHERE id = :postKey ")
     void deletePost(int postKey);
 
-    @Query("SELECT * FROM POST_TABLE order by timestamp DESC")
+    @Query("SELECT * FROM POST_TABLE WHERE deleted = 0 order by timestamp DESC")
     List<Post> getAllPosts();
 
     @Query("SELECT * FROM POST_TABLE WHERE post_table.id = :postKey ")
@@ -41,7 +42,7 @@ interface PostDao{
     @Transaction
     PostAllComments getPostAllComments(String postKey);
 
-    @Query("SELECT * FROM POST_TABLE WHERE userId = :userId order by timestamp DESC")
+    @Query("SELECT * FROM POST_TABLE WHERE deleted = 0 and userId = :userId order by timestamp DESC")
     List<Post>  getPostsPerUser(String userId);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

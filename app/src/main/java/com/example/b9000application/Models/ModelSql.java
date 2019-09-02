@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Database(entities = {Post.class, User.class, Comment.class}, version = 30, exportSchema = false)
+@Database(entities = {Post.class, User.class, Comment.class}, version = 31, exportSchema = false)
 @TypeConverters({Converters.class})
 abstract class AppLocalDbRepository extends RoomDatabase {
     public abstract PostDao postDao();

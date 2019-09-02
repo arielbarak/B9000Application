@@ -30,9 +30,9 @@
             android:layout_width="413dp"
             android:layout_height="83dp"
             android:layout_marginTop="106dp"
-            android:background="@drawable/popup_edittext_style"
+            android:background="@color/colorAccent"
             android:ems="10"
-            android:hint="Content"
+            android:hint="@string/content"
             android:inputType="textMultiLine"
             android:lines="6"
             android:singleLine="false"
@@ -86,7 +86,7 @@
             android:layout_marginTop="64dp"
             android:layout_marginEnd="70dp"
             android:layout_marginRight="70dp"
-            android:background="@color/colorWhite"
+            android:background="@android:drawable/btn_dropdown"
             android:ems="10"
             android:entries="@array/Categories"
             android:spinnerMode="dropdown"
@@ -109,6 +109,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars[0]" />
+
+        <TextView
+            android:id="@+id/tvHeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="New Post"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/add_post_category"
+            app:layout_constraintEnd_toStartOf="@+id/add_post_user_image"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
