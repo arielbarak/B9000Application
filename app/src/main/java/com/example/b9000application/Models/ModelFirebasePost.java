@@ -120,7 +120,30 @@ public class ModelFirebasePost extends ModelFirebase {
 //                });
 //            }
 //        });
-        db.collection("Posts").addSnapshotListener(new EventListener<QuerySnapshot>() {
+//        db.collection("Posts").addSnapshotListener(new EventListener<QuerySnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+//                LinkedList<Post> data = new LinkedList<>();
+//                if (e != null) {
+//                    listener.onResponse(data);
+//                    return;
+//                }
+//                db.collection("Posts").orderBy("timestamp", Query.Direction.ASCENDING).whereEqualTo("deleted", 0).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                    LinkedList<Post> data = new LinkedList<>();
+//
+//                    @Override
+//                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                        for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
+//                            Post post = doc.toObject(Post.class);
+//                            data.add(post);
+//                        }
+//                        listener.onResponse(data);
+//                    }
+//                });
+//            }
+//        });
+
+        db.collection("Posts").whereEqualTo("deleted", 0).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 LinkedList<Post> data = new LinkedList<>();
@@ -128,18 +151,11 @@ public class ModelFirebasePost extends ModelFirebase {
                     listener.onResponse(data);
                     return;
                 }
-                db.collection("Posts").orderBy("timestamp", Query.Direction.ASCENDING).whereEqualTo("deleted", 0).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    LinkedList<Post> data = new LinkedList<>();
-
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
-                            Post post = doc.toObject(Post.class);
-                            data.add(post);
-                        }
-                        listener.onResponse(data);
-                    }
-                });
+                for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
+                    Post post = doc.toObject(Post.class);
+                    data.add(post);
+                }
+                listener.onResponse(data);
             }
         });
     }
