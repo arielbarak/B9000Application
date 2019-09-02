@@ -17,8 +17,8 @@ public class PostUpdateViewModel extends AndroidViewModel {
     public void saveBlogImage(Uri imageBitmap, PostRepository.SaveImageListener listener) {
         PostRepository.instance.saveBlogImage(imageBitmap,listener);
     }
-    public void isPostExist(String postKey, PostRepository.ExistPostListener listener)
+    public void ifPostExists(String postKey, PostRepository.ExistPostListener listener)
     {
-        PostRepository.instance.isPostExist(postKey, listener);
+        PostRepository.instance.ifPostExists(postKey, listener);
     }
 }

@@ -116,7 +116,7 @@ public class EditPostFragment extends Fragment {
                     btn_Edit.setVisibility(View.INVISIBLE);
                     progressBar.setVisibility(View.VISIBLE);
                     enable_input(false);
-                    postUpdateViewModel.isPostExist(p.getPostKey(), new PostRepository.ExistPostListener() {
+                    postUpdateViewModel.ifPostExists(p.getPostKey(), new PostRepository.ExistPostListener() {
                         @Override
                         public void onExist() {
                             if (!tv_Content.getText().toString().isEmpty() && pickerImgUri !=null)

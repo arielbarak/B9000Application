@@ -217,7 +217,7 @@ public class ModelFirebasePost extends ModelFirebase {
     }
 
 
-    public void isPostExist(String postKey, final PostRepository.ExistPostListener listener) {
+    public void ifPostExists(String postKey, final PostRepository.ExistPostListener listener) {
         if (isNetworkConnected())
         {
             db.collection("Posts").whereEqualTo("deleted",false).whereEqualTo("postKey",postKey).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {

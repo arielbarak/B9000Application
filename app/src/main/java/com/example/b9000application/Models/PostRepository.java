@@ -21,8 +21,8 @@ public class PostRepository {
         void onOffline();
         void onError(Exception e);
     }
-    public void isPostExist(String postKey, ExistPostListener listener) {
-        modelFirebase.isPostExist(postKey, listener);
+    public void ifPostExists(String postKey, ExistPostListener listener) {
+        modelFirebase.ifPostExists(postKey, listener);
     }
 
     public LiveData<LinkedList<Post>> getAllPosts()
