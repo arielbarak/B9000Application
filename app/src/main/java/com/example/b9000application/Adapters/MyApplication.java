@@ -7,7 +7,7 @@ import androidx.multidex.MultiDexApplication;
 
 
 public class MyApplication extends MultiDexApplication {
-    static Context context;
+    public static Context context;
 
     @Override
     public void onCreate() {

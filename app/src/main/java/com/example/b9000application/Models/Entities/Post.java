@@ -44,8 +44,6 @@ public class Post implements Serializable {
     private String userId;
     @NonNull
     private String userName;
-    @NonNull
-    private int deleted; //0 is false = post not deleted, 1 is true = post deleted
 
     @NonNull
     public String getUserName() {
@@ -64,6 +62,9 @@ public class Post implements Serializable {
     public void setUserImage(@NonNull String userImage) {
         this.userImage = userImage;
     }
+
+    @NonNull
+    private int deleted; //0 is false = post not deleted, 1 is true = post deleted
 
     @NonNull
     public int getDeleted() { return deleted; }

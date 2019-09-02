@@ -34,7 +34,7 @@ abstract class AppLocalDbRepository extends RoomDatabase {
         if (INSTANCE == null) {
             synchronized (AppLocalDbRepository.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                    INSTANCE = Room.databaseBuilder(MyApplication.context,
                             AppLocalDbRepository.class, "database.db")
                             // Wipes and rebuilds instead of migrating if no Migration object.
                             // Migration is not part of this codelab.

@@ -78,7 +78,7 @@ public class ModelFirebasePost extends ModelFirebase {
                                         data.add(p);
 
                                     }
-                                    Log.d("FIrebase", "onEvent: firebase getall posts"+ " "+ data.size());
+                                    Log.d("FIrebase", "onEvent: firebase getall posts" + " " + data.size());
                                     listener.onResponse(data);
 
                                 }
@@ -93,10 +93,25 @@ public class ModelFirebasePost extends ModelFirebase {
                     }
                 }
             });
-        }
-        else
-        {
-            listener.onError();
+//        db.collection("Posts").addSnapshotListener(new EventListener<QuerySnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+//                LinkedList<Post> data = new LinkedList<>();
+//                if (e != null) {
+//                    listener.onResponse(data);
+//                    return;
+//                }
+//                for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
+//                    Post post = doc.toObject(Post.class);
+//                    data.add(post);
+//                }
+//                listener.onResponse(data);
+//            }
+////        else
+////        {
+////            listener.onError();
+////        }
+//        });
         }
     }
 
@@ -220,7 +235,7 @@ public class ModelFirebasePost extends ModelFirebase {
     public void ifPostExists(String postKey, final PostRepository.ExistPostListener listener) {
         if (isNetworkConnected())
         {
-            db.collection("Posts").whereEqualTo("deleted",false).whereEqualTo("postKey",postKey).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            db.collection("Posts").whereEqualTo("deleted",0).whereEqualTo("postKey",postKey).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                     if(queryDocumentSnapshots.size() == 0)
